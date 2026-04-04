@@ -1,10 +1,5 @@
 def analyze_words(words):
-    result = {}
-
-    for word in words:
-        letters = sorted(word)
-        result[word] = letters  
-    return result
+    return {word: tuple(sorted(set(word))) for word in words}
 
 words = ['hello', 'cat']
 print(analyze_words(words))
