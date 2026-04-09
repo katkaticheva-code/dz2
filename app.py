@@ -1,5 +1,11 @@
-def analyze_words(words):
-    return {word: tuple(sorted(set(word))) for word in words}
+def flatten(data):
+    result = []
+    for item in data:
+        if isinstance(item, list):
+            result.extend(flatten(item))
+        else:
+            result.append(item)
+    return result 
 
-words = ['hello', 'cat']
-print(analyze_words(words))
+data = [1, [2, [3, 4], 5], [6]]
+print(flatten(data))
